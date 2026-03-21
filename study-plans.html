@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Study Plans</title>
+    <title>Program Study Plans - Student Journey Hub</title>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -12,7 +12,9 @@
             --accent-orange: #F28482;
             --text-dark: #4A4A4A;
             --white: #FFFFFF;
-            --table-border: #E0E0E0;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
         }
 
         * {
@@ -31,10 +33,10 @@
         }
 
         .plan-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
@@ -46,26 +48,30 @@
             cursor: pointer;
             font-weight: bold;
             color: var(--accent-orange);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-decoration: none;
+            transition: transform 0.2s;
         }
+
+        .back-nav:hover { transform: translateX(-5px); }
 
         h1 {
             text-align: center;
             margin-bottom: 2rem;
             color: var(--accent-orange);
+            font-size: 2rem;
         }
 
         .btn-group {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             justify-content: center;
         }
 
         .tab-btn {
-            padding: 1rem 2rem;
-            border: none;
+            padding: 0.8rem 1.8rem;
+            border: 2px solid transparent;
             border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
@@ -77,50 +83,113 @@
         .tab-btn.active {
             background: var(--accent-orange);
             color: white;
+            box-shadow: 0 4px 12px rgba(242, 132, 130, 0.3);
         }
 
-        .table-section { display: none; margin-top: 2rem; }
-        .table-section.active { display: block; }
+        .plan-section { display: none; }
+        .plan-section.active { display: block; }
 
-        .plan-header {
-            background: var(--bg-warm);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1.5rem 0 1rem;
+        /* Timeline Styles */
+        .plan-variant {
+            margin-bottom: 3rem;
+        }
+
+        .variant-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #555;
+            padding: 0.6rem 1.2rem;
+            background: var(--newbie-yellow);
+            display: inline-block;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .year-block {
+            border-left: 3px solid var(--accent-orange);
+            margin-left: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .year-title {
+            font-size: 1.4rem;
             font-weight: bold;
             color: var(--accent-orange);
+            margin-bottom: 1rem;
+            position: relative;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .year-title::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 0.4rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+        }
+
+        .semester-block {
             margin-bottom: 1.5rem;
-            font-size: 0.9rem;
         }
 
-        th, td {
-            border: 1px solid var(--table-border);
-            padding: 12px;
-            text-align: left;
+        .semester-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 0.5rem;
         }
 
-        th { background: #f9f9f9; font-weight: 700; }
-        .year-cell { background: #fdfdfd; font-weight: bold; width: 60px; text-align: center; }
+        .course-list {
+            list-style: none;
+        }
+
+        .course-item {
+            background: var(--bg-warm);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .course-code { font-weight: bold; color: #444; }
+        .course-credits { color: #777; font-size: 0.85rem; margin-left: 5px; }
+        
+        .exam-tag {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--white);
+            background: var(--current-teal);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
 
         .remark {
             font-style: italic;
             font-size: 0.85rem;
             color: #666;
-            margin-top: 10px;
-            padding: 10px;
-            border-left: 3px solid var(--accent-orange);
+            margin-top: 1rem;
+            padding: 12px;
+            background: #fdfdfd;
+            border-radius: 10px;
+            border: 1px dashed #ccc;
         }
 
         @media (max-width: 768px) {
             .btn-group { flex-direction: column; }
-            .plan-container { padding: 1.5rem; border-radius: 20px; }
-            table { font-size: 0.8rem; }
-            th, td { padding: 8px; }
+            .plan-container { padding: 1.5rem; border-radius: 0; }
+            .year-block { margin-left: 0.5rem; padding-left: 1.5rem; }
+            .year-title::before { left: -1.95rem; }
         }
     </style>
 </head>
@@ -131,86 +200,209 @@
             <i data-lucide="arrow-left"></i> Back to Home
         </a>
         <h1>Program Study Plans</h1>
-
+        
         <div class="btn-group">
             <button class="tab-btn active" onclick="switchTab('master')">Master's Program</button>
             <button class="tab-btn" onclick="switchTab('doctoral')">Doctoral Program</button>
         </div>
 
         <!-- Master's Content -->
-        <div id="masterContent" class="table-section active">
-            <div class="plan-header">(1) Plan A1: Research only</div>
-            <table>
-                <thead><tr><th>Year</th><th>Semester 1</th><th>Semester 2</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td class="year-cell">1</td>
-                        <td>SCBC 798 Thesis (9 cr)</td>
-                        <td>SCBC 798 Thesis (continued) (9 cr)<br><i>Proposal Examination</i></td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2</td>
-                        <td>SCBC 798 Thesis (continued) (9 cr)</td>
-                        <td>SCBC 798 Thesis (continued) (9 cr)</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="remark">Students may register for other courses as audit with approval.</p>
+        <div id="masterContent" class="plan-section active">
+            
+            <div class="plan-variant">
+                <div class="variant-title">Plan A1: Research only</div>
+                
+                <div class="year-block">
+                    <div class="year-title">Year 1</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 798</span> Thesis <span class="course-credits">(9 credits)</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <span class="course-code">SCBC 798</span> Thesis (continued) <span class="course-credits">(9 credits)</span>
+                                <br><span class="exam-tag">Proposal Examination</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="plan-header">(2) Plan A2: Coursework and research</div>
-            <table>
-                <thead><tr><th>Year</th><th>Semester 1</th><th>Semester 2</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td class="year-cell">1</td>
-                        <td>SCBC 609*, SCBC 610*, SCBC 612*, SCID 506, SCID 518, Electives (8–10 cr)</td>
-                        <td>SCBC 619 Integrated Skills, Electives (6–8 cr)</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2</td>
-                        <td>SCBC 604 Seminar I, SCBC 698 Thesis (10 cr)<br><i>Proposal Examination</i></td>
-                        <td>SCBC 606 Seminar II, SCBC 698 Thesis (10 cr)</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="remark">* Students select one of three core courses most related to research.</p>
+                <div class="year-block">
+                    <div class="year-title">Year 2</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 798</span> Thesis (continued) <span class="course-credits">(9 credits)</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 798</span> Thesis (continued) <span class="course-credits">(9 credits)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="remark">Students may register for other courses as audit with recommendation and approval.</p>
+            </div>
+
+            <div class="plan-variant">
+                <div class="variant-title">Plan A2: Coursework and research</div>
+                
+                <div class="year-block">
+                    <div class="year-title">Year 1</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCID 506</span> Concepts of Molecular Bioscience <span class="course-credits">(2 credits)</span></li>
+                            <li class="course-item"><span class="course-code">SCID 518</span> Generic Skills in Science Research <span class="course-credits">(1 credit)</span></li>
+                            <li class="course-item"><span class="course-code">SCBC 6xx</span> Core Course Select* <span class="course-credits">(2 credits)</span></li>
+                            <li class="course-item">Elective courses <span class="course-credits">(3–5 credits)</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 619</span> Integrated Skills in Biochemical Research <span class="course-credits">(3 credits)</span></li>
+                            <li class="course-item">Elective courses <span class="course-credits">(3–5 credits)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="year-block">
+                    <div class="year-title">Year 2</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 604</span> Biochemistry Seminar I <span class="course-credits">(1 credit)</span></li>
+                            <li class="course-item">
+                                <span class="course-code">SCBC 698</span> Thesis <span class="course-credits">(9 credits)</span>
+                                <br><span class="exam-tag">Proposal Examination</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 606</span> Biochemistry Seminar II <span class="course-credits">(1 credit)</span></li>
+                            <li class="course-item"><span class="course-code">SCBC 698</span> Thesis (continued) <span class="course-credits">(9 credits)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="remark">* Select one: SCBC 609, SCBC 610, or SCBC 612 most related to research.</p>
+            </div>
         </div>
 
         <!-- Doctoral Content -->
-        <div id="doctoralContent" class="table-section">
-            <div class="plan-header">Plan 1.1: Research only (For Master's holders)</div>
-            <table>
-                <thead><tr><th>Year</th><th>Semester 1</th><th>Semester 2</th></tr></thead>
-                <tbody>
-                    <tr><td class="year-cell">1</td><td>SCBC 898 Dissertation (8 cr)<br><i>Qualifying Exam</i></td><td>SCBC 898 Dissertation (8 cr)<br><i>Proposal Exam</i></td></tr>
-                    <tr><td class="year-cell">2</td><td>SCBC 898 Dissertation (8 cr)</td><td>SCBC 898 Dissertation (8 cr)</td></tr>
-                    <tr><td class="year-cell">3</td><td>SCBC 898 Dissertation (8 cr)</td><td>SCBC 898 Dissertation (8 cr)</td></tr>
-                </tbody>
-            </table>
+        <div id="doctoralContent" class="plan-section">
+            
+            <div class="plan-variant">
+                <div class="variant-title">Plan 1.1: Research only (M.Sc. Holder)</div>
+                <div class="year-block">
+                    <div class="year-title">Year 1</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 898</span> Dissertation <span class="course-credits">(8 credits)</span><br><span class="exam-tag">Qualifying Examination</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 898</span> Dissertation (continued) <span class="course-credits">(8 credits)</span><br><span class="exam-tag">Proposal Examination</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ... Year 2 & 3 simplified for display ... -->
+                <div class="year-block">
+                    <div class="year-title">Year 2 & 3</div>
+                    <div class="semester-block">
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 898</span> Dissertation (continued) <span class="course-credits">(8 credits per semester)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            <div class="plan-header">Plan 2.1: Coursework and research (For Master's holders)</div>
-            <table>
-                <thead><tr><th>Year</th><th>Semester 1</th><th>Semester 2</th></tr></thead>
-                <tbody>
-                    <tr><td class="year-cell">1</td><td>SCBC 607, Electives (3–6 cr)</td><td>SCBC 613, Electives (3–6 cr)</td></tr>
-                    <tr><td class="year-cell">2</td><td>SCBC 614, <i>Qualifying Exam</i> (1 cr)</td><td>SCBC 615, SCBC 699 Dissertation, <i>Proposal Exam</i> (10 cr)</td></tr>
-                    <tr><td class="year-cell">3</td><td>SCBC 699 Dissertation (9 cr)</td><td>SCBC 616, SCBC 699 Dissertation (10 cr)</td></tr>
-                    <tr><td class="year-cell">4</td><td>SCBC 699 Dissertation (9 cr)</td><td>-</td></tr>
-                </tbody>
-            </table>
-            <p class="remark"># Required audit SCID 506 if not passed before.</p>
+            <div class="plan-variant">
+                <div class="variant-title">Plan 2.1: Coursework + Research (M.Sc. Holder)</div>
+                <div class="year-block">
+                    <div class="year-title">Year 1</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 607</span> Current Topics in Biochemistry <span class="course-credits">(3 credits)</span></li>
+                            <li class="course-item">Elective courses <span class="course-credits">(0–3 credits)</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 613</span> Advanced Skills in Biochemical Research <span class="course-credits">(3 credits)</span></li>
+                            <li class="course-item">Elective courses <span class="course-credits">(0–3 credits)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="year-block">
+                    <div class="year-title">Year 2</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 614</span> Adv. Biochem Seminar I <span class="course-credits">(1 credit)</span><br><span class="exam-tag">Qualifying Examination</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 615</span> Adv. Biochem Seminar II <span class="course-credits">(1 credit)</span></li>
+                            <li class="course-item"><span class="course-code">SCBC 699</span> Dissertation <span class="course-credits">(9 credits)</span><br><span class="exam-tag">Proposal Examination</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            <div class="plan-header">Plan 2.2: Coursework and research (For Bachelor's holders)</div>
-            <table>
-                <thead><tr><th>Year</th><th>Semester 1</th><th>Semester 2</th></tr></thead>
-                <tbody>
-                    <tr><td class="year-cell">1</td><td>Core* (SCBC 609/610/612), SCID 506, SCID 518, Electives (10–12 cr)</td><td>SCBC 603, SCBC 613, Electives (9–11 cr)</td></tr>
-                    <tr><td class="year-cell">2</td><td>SCBC 614, <i>Qualifying Exam</i> (1 cr)</td><td>SCBC 615, SCBC 799 Dissertation, <i>Proposal Exam</i> (5 cr)</td></tr>
-                    <tr><td class="year-cell">3</td><td>SCBC 799 Dissertation (6 cr)</td><td>SCBC 616, SCBC 799 Dissertation (7 cr)</td></tr>
-                    <tr><td class="year-cell">4</td><td>SCBC 799 Dissertation (8 cr)</td><td>SCBC 799 Dissertation (8 cr)</td></tr>
-                    <tr><td class="year-cell">5</td><td>SCBC 799 Dissertation (8 cr)</td><td>SCBC 799 Dissertation (8 cr)</td></tr>
-                </tbody>
-            </table>
+            <div class="plan-variant">
+                <div class="variant-title">Plan 2.2: Coursework + Research (B.Sc. Holder)</div>
+                <div class="year-block">
+                    <div class="year-title">Year 1</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCID 506</span> Concepts of Molecular Bioscience <span class="course-credits">(2 credits)</span></li>
+                            <li class="course-item"><span class="course-code">SCID 518</span> Generic Skills in Science Research <span class="course-credits">(1 credit)</span></li>
+                            <li class="course-item"><span class="course-code">SCBC 6xx</span> Core Course Select* <span class="course-credits">(2 credits)</span></li>
+                            <li class="course-item">Electives <span class="course-credits">(5–7 credits)</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 603</span> Adv. Biochemistry Laboratory <span class="course-credits">(2 credits)</span></li>
+                            <li class="course-item"><span class="course-code">SCBC 613</span> Adv. Skills in Biochemical Research <span class="course-credits">(3 credits)</span></li>
+                            <li class="course-item">Electives <span class="course-credits">(4–6 credits)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="year-block">
+                    <div class="year-title">Year 2</div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 1</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 614</span> Adv. Biochem Seminar I <span class="course-credits">(1 credit)</span><br><span class="exam-tag">Qualifying Examination</span></li>
+                        </ul>
+                    </div>
+                    <div class="semester-block">
+                        <div class="semester-title">Semester 2</div>
+                        <ul class="course-list">
+                            <li class="course-item"><span class="course-code">SCBC 615</span> Adv. Biochem Seminar II <span class="course-credits">(1 credit)</span></li>
+                            <li class="course-item"><span class="course-code">SCBC 799</span> Dissertation <span class="course-credits">(4 credits)</span><br><span class="exam-tag">Proposal Examination</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
