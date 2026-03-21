@@ -1,1 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships Available - Student Journey Hub</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --mahidol-blue: #0035ad;
+            --soft-yellow: #FFEDC2;
+            --teal: #A8DADC;
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            color: var(--accent-orange);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .scholarship-section {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .tag-mu { background: var(--mahidol-blue); color: white; }
+        .tag-grad { background: var(--teal); color: var(--text-dark); }
+        .tag-sc { background: var(--soft-yellow); color: var(--text-dark); }
+        .tag-bc { background: var(--accent-orange); color: white; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .scholarship-card {
+            background: var(--bg-warm);
+            border-radius: 15px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            transition: transform 0.2s, background 0.2s;
+            border-left: 5px solid transparent;
+        }
+
+        .scholarship-card:hover {
+            transform: translateY(-2px);
+            background: #fff;
+            border-color: var(--accent-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent-orange);
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--accent-orange);
+            transition: 0.2s;
+        }
+
+        .info-btn:hover {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        .highlight-box {
+            background: #fff4e5;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            border: 1px dashed var(--accent-orange);
+        }
+
+        @media (max-width: 768px) {
+            .scholarship-section { padding: 1.5rem; border-radius: 20px; }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-nav">
+            <i data-lucide="arrow-left"></i> Back to Home
+        </a>
+
+        <header>
+            <h1>Scholarships Available</h1>
+            <p>Support for your academic journey at Biochemistry</p>
+        </header>
+
+        <!-- From Mahidol University -->
+        <section class="scholarship-section">
+            <div class="section-tag tag-mu">Mahidol University</div>
+                <br>
+            <div class="scholarship-card">
+                <div class="card-title">Scholarships for Ph.D. Student</div>
+                <div class="card-desc">Comprehensive support for doctoral candidates. Applicants are encouraged to communicate directly with potential PIs.</div>
+                <a href="https://op.mahidol.ac.th/pl/%e0%b8%97%e0%b8%b8%e0%b8%99-ph-d-2565" target="_blank" class="info-btn">
+                    Detailed Information <i data-lucide="external-link" style="width:14px"></i>
+                </a>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Living Allowance for Foreign Graduate Students</div>
+                <div class="card-desc">Monthly financial assistance for international graduate students at Mahidol University.</div>
+                <a href="https://op.mahidol.ac.th/ir/th/scholarship-for-living-allowance/" target="_blank" class="info-btn">
+                    Detailed Information <i data-lucide="external-link" style="width:14px"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Faculty of Graduate Studies -->
+        <section class="scholarship-section">
+            <div class="section-tag tag-grad">Faculty of Graduate Studies</div>
+                <br>
+            <div class="scholarship-card">
+                <div class="card-title">Scholarships for Thai Students (ทุนบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล)</div>
+                <div class="card-desc">Specifically for Thai students enrolled in graduate programs.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Mahidol Postgraduate Scholarships for International Students</div>
+                <div class="card-desc">Funding opportunities for international graduate students.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">RA: Research Assistantships</div>
+                <div class="card-desc">Work directly with researchers while receiving financial support.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Academic Presentation Grants</div>
+                <div class="card-desc">Travel grant support for academic presentations in Thailand and abroad.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Partial Funding for Graduate Student Thesis</div>
+                <div class="card-desc">Support funding from the Graduate Studies of Mahidol University Alumni Association.</div>
+            </div>
+
+            <a href="https://graduate.mahidol.ac.th/inter/?p=scholarship" target="_blank" class="info-btn" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                View All Graduate Scholarships <i data-lucide="external-link" style="width:14px"></i>
+            </a>
+        </section>
+
+        <!-- Faculty of Science -->
+        <section class="scholarship-section">
+            <div class="section-tag tag-sc">Faculty of Science</div>
+                <br>
+            <div class="scholarship-card">
+                <div class="card-title">Young Scientist Scholarship</div>
+                <div class="card-desc">Support both Thai and international students in the first year.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Teaching Assistant (TA) Scholarship</div>
+                <div class="card-desc">Gain teaching experience while funding your studies in the second year onward.</div>
+            </div>
+
+            <a href="https://science.mahidol.ac.th/scmd/Grad/scholarships.html" target="_blank" class="info-btn" style="width: 100%; justify-content: center;">
+                Faculty of Science Portal <i data-lucide="external-link" style="width:14px"></i>
+            </a>
+        </section>
+
+        <!-- Department of Biochemistry -->
+        <section class="scholarship-section">
+            <div class="section-tag tag-bc">Department of Biochemistry</div>
+                <br>
+            <div class="scholarship-card">
+                <div class="card-title">Academic Excellence & Merit</div>
+                <div class="card-desc">Awards and scholarships for students with outstanding academic records.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Partial Tuition Fee Support</div>
+                <div class="card-desc">Available for students entering in academic year 2024 onward.</div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-title">Conference & Training Grants</div>
+                <div class="card-desc">Grants for attending academic conferences, training programs, or seminars.</div>
+            </div>
+
+            <a href="https://biochemistry.sc.mahidol.ac.th/scholarship-support/" target="_blank" class="info-btn" style="width: 100%; justify-content: center;">
+                Departmental Website <i data-lucide="external-link" style="width:14px"></i>
+            </a>
+        </section>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
