@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Thesis Submission</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --success-green: #81b29a;
+            --warning-red: #ef4444;
+            --gold-light: #fef3c7;
+            --gold-dark: #92400e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        h1 { color: var(--deep-orange); margin-bottom: 0.5rem; }
+        .subtitle { color: #666; margin-bottom: 2rem; line-height: 1.6; }
+
+        .eligibility-banner {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            padding: 1.25rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #065f46;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        .action-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+
+        .action-card:hover { border-color: var(--info-blue); }
+
+        .action-card h3 {
+            color: var(--info-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary { background: var(--info-blue); color: white; }
+        .btn-secondary { background: var(--success-green); color: white; }
+
+        .important-notes {
+            background: var(--gold-light);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border-left: 6px solid #f59e0b;
+        }
+
+        .important-notes h2 {
+            font-size: 1.2rem;
+            color: var(--gold-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .note-list {
+            list-style: none;
+        }
+
+        .note-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #78350f;
+            line-height: 1.5;
+        }
+
+        .note-item i {
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .deadline-highlight {
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--warning-red);
+        }
+
+        .fine-box {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #d97706;
+            font-weight: bold;
+            color: var(--warning-red);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/academic-journey/current-students/thesis-process.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Thesis Process
+    </a>
+
+    <h1>Submitting the e-Thesis</h1>
+
+    <div class="eligibility-banner">
+        <i data-lucide="check-circle" style="color: #10b981;"></i>
+        <span><strong>Eligibility Requirement:</strong> Thesis defense exam result must be updated to <strong>"Pass"</strong>.</span>
+    </div>
+
+    <div class="card-grid">
+        <!-- Portal -->
+        <div class="action-card">
+            <div>
+                <h3><i data-lucide="log-in"></i> Submission Portal</h3>
+                <p>Access the e-Thesis Submission System using your student credentials to upload your files.</p>
+            </div>
+            <a href="https://graduate.mahidol.ac.th/ethesis/stu/login.php" target="_blank" class="btn btn-primary">
+                Login to e-Thesis Submission System<i data-lucide="chevron-right"></i>
+            </a>
+        </div>
+
+        <!-- Guide -->
+        <div class="action-card">
+            <div>
+                <h3><i data-lucide="file-text"></i> Step-by-Step Guide</h3>
+                <p>View detailed instructions on navigating the submission workflow.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/16JPvQVCwNLKOJ_yZyYTeMJ-vN43R-brX/view?usp=drive_link" target="_blank" class="btn btn-secondary">
+                View Instructions <i data-lucide="external-link"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="important-notes">
+        <h2><i data-lucide="alert-triangle"></i> Important Notes</h2>
+        <div class="note-list">
+            <div class="note-item">
+                <i data-lucide="info" size="18"></i>
+                <span><strong>Thai Abstracts:</strong> Not required for students enrolled in the <strong>International Program</strong>.</span>
+            </div>
+            <div class="note-item">
+                <i data-lucide="calendar-clock" size="18"></i>
+                <span><strong>Submission Deadline:</strong> e-Thesis must be submitted within <span class="deadline-highlight">21 days</span> from the date of passing thesis defense.</span>
+            </div>
+
+            <div class="fine-box">
+                <i data-lucide="alert-circle" size="18" style="vertical-align: middle; margin-right: 5px;"></i>
+                Late submission fine: 200 Baht per day after the deadline.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
