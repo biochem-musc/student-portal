@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Progress Submission</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --success-green: #81b29a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        .announcement-banner {
+            background: #fee2e2;
+            border-left: 5px solid #ef4444;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h1 {
+            color: var(--deep-orange);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .role-card {
+            border: 1px solid var(--soft-gray);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            background: #fafafa;
+        }
+
+        .role-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--info-blue);
+        }
+
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background: var(--newbie-yellow);
+            color: var(--deep-orange);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .contact-item:last-child { border-bottom: none; }
+
+        .system-link-box {
+            background: #f0f9fa;
+            border: 1px dashed var(--current-teal);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--info-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .workflow-visual {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #475569;
+            margin-top: 10px;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="thesis-process.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Thesis Process
+    </a>
+
+    <div class="announcement-banner">
+        <i data-lucide="alert-circle" style="color: #ef4444"></i>
+        <p><strong>Notice:</strong> The Faculty of Graduate Studies (FGS) has <strong>cancelled the GR42 form</strong>. Please follow the new instructions below.</p>
+    </div>
+
+    <h1>Thesis Progress Submission</h1>
+
+    <!-- Student Section -->
+    <div class="section">
+        <div class="role-card">
+            <div class="role-header">
+                <i data-lucide="user"></i> For Students
+            </div>
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div>
+                    <p>Prepare your thesis progress file in <strong>PDF format</strong>.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div>
+                    <p>Submit the file directly to your <strong>Major Advisor</strong>.</p>
+                    <p style="margin-top:10px; font-size: 0.9rem; color: #64748b;">
+                        <em>Note: If your thesis committee has not been appointed OR you haven't taken the proposal exam yet, submit your thesis progress to the <strong>Program Director</strong>:</em>
+                    </p>
+                    <div class="contact-box">
+                        <div class="contact-item">
+                            <span><strong>MSc Program</strong><br><small>Assoc. Prof. Dr. Ruchanok Tinikul</small></span>
+                            <a href="mailto:ruchanok.tin@mahidol.ac.th" style="color: var(--info-blue)">ruchanok.tin@mahidol.ac.th</a>
+                        </div>
+                        <div class="contact-item">
+                            <span><strong>PhD Program</strong><br><small>Assoc. Prof. Dr. Thaned Kangsamaksin</small></span>
+                            <a href="mailto:thaned.kan@mahidol.ac.th" style="color: var(--info-blue)">thaned.kan@mahidol.ac.th</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advisor Section -->
+    <div class="section">
+        <div class="role-card">
+            <div class="role-header">
+                <i data-lucide="users"></i> For Advisors & Program Directors
+            </div>
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div>
+                    <p>Evaluate the submitted progress report.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div>
+                    <p>Log in to the Online Thesis Advisor system and submit the evaluation through the following workflow:</p>
+                    <div class="workflow-visual">
+                        Online Thesis Advisor (อนุมัติ บฑ. ทุกประเภท) <br>
+                        &nbsp;↳ Grading for Thesis/Thematic Paper <br>
+                        &nbsp;&nbsp;&nbsp;↳ Evaluation of thesis for each term
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="system-link-box">
+        <h3>Thesis Progress Submission Portal</h3>
+        <p>Accessible by Advisors and Program Directors</p>
+        <a href="https://graduate.mahidol.ac.th/Programme-director/login.php" target="_blank" class="btn-primary">
+            <i data-lucide="external-link"></i> Online Thesis Advisor System
+        </a>
+    </div>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
