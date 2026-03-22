@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation & Degree Request</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --success-green: #81b29a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--deep-orange);
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dark);
+            margin: 2rem 0 1.2rem 0;
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--newbie-yellow);
+            padding-bottom: 8px;
+        }
+
+        /* --- Tabs --- */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 12px;
+            background: var(--soft-gray);
+            color: var(--text-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn.active {
+            background: var(--deep-orange);
+            color: white;
+        }
+
+        .plan-content {
+            display: none;
+            background: #fdfdfd;
+            border: 1px solid var(--soft-gray);
+            border-radius: 20px;
+            padding: 1.5rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .plan-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .req-list {
+            list-style: none;
+        }
+
+        .req-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .req-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- Degree Request Section --- */
+        .case-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .case-card {
+            background: var(--bg-warm);
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid #ffe8cc;
+        }
+
+        .case-card h4 {
+            color: var(--info-blue);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-item {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            border: 1px solid var(--soft-gray);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .steps-box {
+            background: #f0f9fa;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px dashed var(--current-teal);
+        }
+
+        .deadline-alert {
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--info-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .link-btn:hover { background: var(--deep-orange); }
+
+        @media (max-width: 768px) {
+            .case-container { grid-template-columns: 1fr; }
+            .container { padding: 1.5rem; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Home
+    </a>
+
+    <h1>Preparing for Your Graduation</h1>
+
+    <!-- Requirements Section -->
+    <section>
+        <h2><i data-lucide="graduation-cap"></i> Graduation Requirements</h2>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showPlan('msc-a1')">MSc (Plan A1)</button>
+            <button class="tab-btn" onclick="showPlan('msc-a2')">MSc (Plan A2)</button>
+            <button class="tab-btn" onclick="showPlan('phd-11')">PhD (Plan 1.1)</button>
+            <button class="tab-btn" onclick="showPlan('phd-2')">PhD (Plan 2.1 & 2.2)</button>
+        </div>
+
+        <!-- MSc Plan A1 -->
+        <div id="msc-a1" class="plan-content active">
+            <ul class="req-list">
+                <li>Study time should not exceed the study plan.</li>
+                <li>Complete 36 thesis credits.</li>
+                <li>Meet the English proficiency requirements for graduation.</li>
+                <li>Pass the thesis defense (open to general audience) and submit final version of the thesis to FGS.</li>
+                <li><strong>One Publication</strong> published in an <strong>International Peer-Reviewed Journal</strong>. Student must be <strong>First Author</strong>.</li>
+            </ul>
+        </div>
+
+        <!-- MSc Plan A2 -->
+        <div id="msc-a2" class="plan-content">
+            <ul class="req-list">
+                <li>Study time should not exceed the study plan.</li>
+                <li>Complete 18 course credits and 18 thesis credits with <strong>GPA ≥ 3.00</strong>.</li>
+                <li>Meet the English proficiency requirements for graduation.</li>
+                <li>Pass the thesis defense (open to general audience) and submit final version of the thesis to FGS.</li>
+                <li><strong>One Publication</strong> published in a peer-reviewed journal <strong>OR</strong> presented at an academic conference with peer-reviewed proceeding.</li>
+            </ul>
+        </div>
+
+        <!-- PhD Plan 1.1 -->
+        <div id="phd-11" class="plan-content">
+            <ul class="req-list">
+                <li>Study time should not exceed the study plan.</li>
+                <li>Complete 48 dissertation credits.</li>
+                <li>Pass the <strong>Qualifying Examination</strong>.</li>
+                <li>Meet the English proficiency requirements for graduation.</li>
+                <li>Pass the dissertation defense (open to general audience) and submit final version of the dissertation to FGS.</li>
+                <li><strong>Two Research Articles</strong> published in a peer-reviewed journal. At least one must be in an <strong>International Peer-Reviewed Journal</strong>. Student must be <strong>First Author</strong> for both.</li>
+            </ul>
+        </div>
+
+        <!-- PhD Plan 2.1 & 2.2 -->
+        <div id="phd-2" class="plan-content">
+            <ul class="req-list">
+                <li>Study time should not exceed the study plan.</li>
+                <li><strong>Credits & GPA (≥ 3.50):</strong>
+                    <br>• Bachelor’s entry: 24 course credits + 48 dissertation credits)
+                    <br>• Master’s entry: 12 course credits + 36 dissertation credits)
+                </li>
+                <li>Pass the <strong>Qualifying Examination</strong>.</li>
+                <li>Meet the English proficiency requirements for graduation.</li>
+                <li>Pass the dissertation defense (open to general audience) and submit final version of the dissertation to FGS.</li>
+                <li><strong>One Publication</strong> published in an <strong>International Peer-Reviewed Journal</strong>. Student must be <strong>First Author or Corresponding Author</strong>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Requesting Degree Section -->
+    <section>
+        <h2><i data-lucide="file-badge"></i> Requesting Degree</h2>
+        <p>Prepare your documents based on your publication type:</p>
+
+        <div class="case-container">
+            <!-- Case 1 -->
+            <div class="case-card">
+                <h4><i data-lucide="presentation"></i> Case I: Conference</h4>
+                <div class="doc-item"><i data-lucide="file-text"></i> Full Proceedings</div>
+                <div class="doc-item"><i data-lucide="award"></i> Certificate of Attendance</div>
+            </div>
+            <!-- Case 2 -->
+            <div class="case-card">
+                <h4><i data-lucide="book-open"></i> Case II: Journal</h4>
+                <div class="doc-item"><i data-lucide="check-square"></i> Acceptance Letter</div>
+                <div class="doc-item"><i data-lucide="file-digit"></i> Full Paper / Manuscript</div>
+            </div>
+        </div>
+
+        <div class="steps-box">
+            <h3>Submission Steps:</h3>
+            <ol style="margin: 15px 0 0 20px; line-height: 1.8;">
+                <li>Combine all required documents into <strong>one PDF file</strong>.</li>
+                <li>Upload and submit via the <strong>Online GR5 System</strong>.</li>
+            </ol>
+            <a href="https://graduate.mahidol.ac.th/e-graduate/main/formlogin.php" target="_blank" class="link-btn">
+                <i data-lucide="external-link"></i> Go to Online GR5 System
+            </a>
+        </div>
+
+        <div class="deadline-alert">
+            <i data-lucide="calendar-clock"></i>
+            <span>
+                <strong>Monthly Deadline:</strong> Submissions must be approved by your major advisor & program director by the <strong>25th of the month</strong> to be nominated for the following month's University Council meeting.
+            </span>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    lucide.createIcons();
+
+    function showPlan(planId) {
+        // Update Buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Update Content
+        document.querySelectorAll('.plan-content').forEach(content => content.classList.remove('active'));
+        document.getElementById(planId).classList.add('active');
+    }
+</script>
+</body>
+</html>
