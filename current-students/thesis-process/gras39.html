@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Proposal Examination</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --success-green: #81b29a;
+            --warning-red: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        .deadline-banner {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #92400e;
+        }
+
+        h1 { color: var(--deep-orange); margin-bottom: 0.5rem; }
+        .subtitle { color: #666; margin-bottom: 2rem; }
+
+        .tabs-container {
+            margin-top: 2rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--soft-gray);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #94a3b8;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--newbie-yellow);
+            color: var(--deep-orange);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .requirement-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--info-blue);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--info-blue);
+        }
+
+        ul { list-style: none; }
+        li { margin-bottom: 10px; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
+        li::before { content: "•"; position: absolute; left: 0; color: var(--accent-orange); font-weight: bold; }
+
+        .committee-box {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-top: 10px;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--deep-orange);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-secondary {
+            background: var(--info-blue);
+        }
+
+        .btn-portal:hover {
+            opacity: 0.9;
+        }
+
+        .next-step-box {
+            background: #fdf2f2;
+            border: 1px dashed var(--accent-orange);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 10px;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="academic-journey/current-students/thesis-process.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Thesis Process
+    </a>
+
+    <h1>Thesis Proposal Examination</h1>
+
+    <div class="deadline-banner">
+        <i data-lucide="clock" style="flex-shrink: 0; margin-top: 3px;"></i>
+        <div>
+            <strong>Critical Timeline:</strong> You must pass your proposal exam within <strong>two semesters</strong> of your first thesis registration. Failure to do so may result in a delayed graduation timeline.
+        </div>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('id66')">Student ID 66 & Below</button>
+            <button class="tab-btn" onclick="showTab('id67')">Student ID 67 Onwards</button>
+        </div>
+
+        <!-- ID 66 and Below -->
+        <div id="id66" class="tab-content active">
+            <div class="requirement-card">
+                <div class="card-title"><i data-lucide="clipboard-list"></i> 1. Form Submission (GR39)</div>
+                <p>Submit the <strong>GR39 form</strong> via the e-Form system at least <strong>15 days</strong> before the exam date.</p>
+                <div class="button-group">
+                    <a href="https://graduate.mahidol.ac.th/prof2/Student/MainPage.php?lang=en&module=login.php" target="_blank" class="btn-portal">
+                        <i data-lucide="external-link"></i> e-Form Portal
+                    </a>
+                    <a href="academic-journey/current-students/eform-submission-guide.html" target="_blank" class="btn-portal btn-secondary">
+                        <i data-lucide="notebook-pen"></i> e-Form Submission Guide
+                    </a>
+                </div>
+            </div>
+
+            <div class="requirement-card" style="border-left-color: var(--success-green);">
+                <div class="card-title" style="color: var(--success-green);"><i data-lucide="users"></i> 2. Committee Composition</div>
+                <p>Number of committee members:</p>
+                <div class="committee-box">
+                    <strong>• For MSc Students:</strong> At least 2 members<br>
+                    <strong>• For PhD Students:</strong> At least 3 members
+                </div>
+            </div>
+
+            <!-- Shared Qualifications -->
+        <div class="highlight-box">
+            <h4 style="margin-bottom: 10px; color: var(--text-dark); display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="award"></i> Committee Qualifications
+            </h4>
+            <ul style="font-size: 0.85rem;">
+                <li><strong>Mahidol Faculty:</strong> Have at least 3 academic works in past 5 years (including at least one research work).</li>
+                <li><strong>New Mahidol Faculty:</strong> Have at least 1 academic work in past 2 years OR 2 in past 4 years (excluding publications completed as part of their doctoral studies).</li>
+                <li><strong>Outside Mahidol:</strong> Have at least 5 publications in the international databases (excluding publications completed as part of their doctoral studies).</li>
+            </ul>
+        </div>
+
+            <div class="requirement-card" style="border-left-color: var(--accent-orange);">
+                <div class="card-title" style="color: var(--accent-orange);"><i data-lucide="file-check-2"></i> 3. After Approval & Result Submission</div>
+                <ul>
+                    <li>Download the <strong>GR33 form</strong> (Evaluation of the thesis proposal exam) from the e-Form system and prepare one copy for the exam day.</li>
+                    <li>Submit the <strong>signed GR33 form</strong> at the departmental office.</li>
+                    <li><strong>If result is "Pass with conditions":</strong> Revise your thesis proposal according to the suggestions received from the committee, then download the <strong>GR37 form</strong> and submit the signed GR37 form at the departmental office within <strong>90 days</strong> from the exam date.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ID 67 Onwards -->
+        <div id="id67" class="tab-content">
+            <div class="requirement-card">
+                <div class="card-title"><i data-lucide="clipboard-list"></i> 1. Form Submission (GRAS39)</div>
+                <p>Submit the <strong>GRAS39 form</strong> via the e-Form system at least <strong>15 days</strong> before the exam date.</p>
+                <div class="button-group">
+                    <a href="https://graduate.mahidol.ac.th/prof2/Student/MainPage.php?lang=en&module=login.php" target="_blank" class="btn-portal">
+                        <i data-lucide="external-link"></i> e-Form Portal
+                    </a>
+                    <a href="academic-journey/current-students/eform-submission-guide.html" target="_blank" class="btn-portal btn-secondary">
+                        <i data-lucide="notebook-pen"></i> e-Form Submission Guide
+                    </a>
+                </div>
+            </div>
+
+            <div class="requirement-card" style="border-left-color: var(--success-green);">
+                <div class="card-title" style="color: var(--success-green);"><i data-lucide="users"></i> 2. Committee Composition</div>
+                <p>Number of committee members:</p>
+                <div class="committee-box">
+                    <strong>• For MSc Students:</strong> At least 2 and up to 3 members<br>
+                    <strong>• For PhD Students:</strong> At least 3 and up to 5 members
+                </div>
+            </div>
+
+            <!-- Shared Qualifications -->
+        <div class="highlight-box">
+            <h4 style="margin-bottom: 10px; color: var(--text-dark); display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="award"></i> Committee Qualifications
+            </h4>
+            <ul style="font-size: 0.85rem;">
+                <li><strong>Mahidol Faculty:</strong> Have at least 3 academic works in past 5 years (including at least one research work).</li>
+                <li><strong>New Mahidol Faculty:</strong> Have at least 1 academic work in past 2 years OR 2 in past 4 years (excluding publications completed as part of their doctoral studies).</li>
+                <li><strong>Outside Mahidol:</strong> Have at least 5 publications in the international databases (excluding publications completed as part of their doctoral studies).</li>
+            </ul>
+        </div>
+
+            <div class="requirement-card" style="border-left-color: var(--accent-orange);">
+                <div class="card-title" style="color: var(--accent-orange);"><i data-lucide="sparkles"></i> 3. After Approval & Result Submission</div>
+                <div class="next-step-box">
+                    <i data-lucide="info" style="display: inline-block; vertical-align: middle; margin-right: 5px;"></i>
+                    <strong>No result submission required:</strong> Students do not need to submit the result of their thesis proposal exam. Once the exam is completed, please proceed directly to the <strong>Thesis Title Approval and Advisory Committee Appointing (GR1)</strong> process.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+
+    function showTab(id) {
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById(id).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+</body>
+</html>
