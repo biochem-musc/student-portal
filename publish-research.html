@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishing Your Research</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-orange);
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--deep-orange);
+            margin: 2.5rem 0 1.5rem 0;
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--newbie-yellow);
+            padding-bottom: 8px;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        .content-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--soft-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* --- Grant Support Styles --- */
+        .grant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .grant-item {
+            background: var(--bg-warm);
+            padding: 1.2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-orange);
+        }
+
+        .grant-item strong {
+            display: block;
+            color: var(--deep-orange);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .grant-amount {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--info-blue);
+        }
+
+        /* --- Checklist --- */
+        .checklist {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .checklist li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+
+        .checklist i {
+            color: var(--current-teal);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* --- Call to Action Box --- */
+        .cta-box {
+            background: #f0f9fa;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border: 1px dashed var(--current-teal);
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--info-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .link-btn:hover { background: var(--deep-orange); }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--white);
+            color: var(--info-blue);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--info-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .warning-tag {
+            display: inline-block;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Home
+    </a>
+
+    <h1>Publishing Your Research</h1>
+
+    <!-- 1. Academic Conference -->
+    <section>
+        <h2><i data-lucide="mic-2"></i> Academic Conference</h2>
+        <div class="content-card">
+            <p>Before registering or submitting your research, if you are unsure about the <strong>conference's quality</strong>, you can request a quality review from the Faculty of Graduate Studies (FGS).</p>
+            <a href="https://graduate.mahidol.ac.th/download/current-student/pdf/GR47EN.pdf" target="_blank" class="link-btn">
+                <i data-lucide="download"></i> Download the GR47 Form (Conference Review)
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Academic Journal -->
+    <section>
+        <h2><i data-lucide="book-marked"></i> Academic Journal</h2>
+        <div class="content-card">
+            <p>Before submitting your manuscript, if you are unsure about the <strong>journal's quality or indexing</strong>, you can request a quality review from the Faculty of Graduate Studies (FGS).</p>
+            <a href="https://graduate.mahidol.ac.th/download/current-student/form/GR43-En.pdf" target="_blank" class="link-btn">
+                <i data-lucide="download"></i> Download the GR43 Form (Journal Review)
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. Travel Grant Support -->
+    <section>
+        <h2><i data-lucide="plane"></i> Travel Grant Support</h2>
+        <div class="content-card">
+            <p>The Biochemistry Department provides financial support for attending conferences or reimbursing travel costs via bench fees (if applicable).</p>
+
+            <div class="grant-grid">
+                <div class="grant-item">
+                    <strong>MSc Students (ID 63+)</strong>
+                    Up to <span class="grant-amount">5,000 THB</span>
+                </div>
+                <div class="grant-item">
+                    <strong>PhD Students (ID 63+)</strong>
+                    Up to <span class="grant-amount">10,000 THB</span>
+                </div>
+                <div class="grant-item">
+                    <strong>MSc and PhD Students (Entering before academic year 2020)</strong>
+                    Up to <span class="grant-amount">5,000 THB</span>
+                    <small style="display:block; font-size:0.7rem;">(Only research supply fee exempt)</small>
+                </div>
+            </div>
+
+            <div class="warning-tag">SUBMISSION DEADLINE: BEFORE MAKING ANY PAYMENTS AND AT LEAST 30 DAYS PRIOR</div>
+            <p>Submit these documents to <strong>P’Mod</strong> for formal approval before making any payments:</p>
+
+            <ul class="checklist">
+                <li><i data-lucide="check-circle-2"></i> 1. Project for attending conference/training/seminar</li>
+                <li><i data-lucide="check-circle-2"></i> 2. Tentative travel schedule</li>
+                <li><i data-lucide="check-circle-2"></i> 3. Conference details (flyer, agenda, or website)</li>
+                <li><i data-lucide="check-circle-2"></i> 4. Acceptance letter from organizer (if any)</li>
+            </ul>
+
+            <div class="language-note">
+                <span><strong>Important Note:</strong>
+                    <br>Thai students must prepare a <strong>Thai version</strong> of the project file (Item 1).
+                    <br>International students must prepare an <strong>English version</strong> of the project file (Item 1).</span>
+            </div>
+
+            <div class="cta-box">
+                <p><strong>Download Templates (Item 1-2):</strong></p>
+                <a href="https://biochemistry.sc.mahidol.ac.th/scholarship-support/" target="_blank" class="link-btn" style="background:var(--current-teal);">
+                    <i data-lucide="download"></i> Download MS Word Templates
+                </a>
+                <p style="margin-top:15px; font-size:0.9rem;">Send the completed files (MS Word) to P'Mod via email:</p>
+                <a href="mailto:kritsadapan.tak@mahidol.ac.th" class="email-link">
+                    <i data-lucide="mail"></i> kritsadapan.tak@mahidol.ac.th
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
