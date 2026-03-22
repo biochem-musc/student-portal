@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Ethics</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --success-green: #81b29a;
+            --warning-red: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        .deadline-banner {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #92400e;
+        }
+
+        h1 { color: var(--deep-orange); margin-bottom: 0.5rem; }
+        .subtitle { color: #666; margin-bottom: 2rem; line-height: 1.5; }
+
+        .requirement-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--info-blue);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--info-blue);
+        }
+
+        ul { list-style: none; }
+        li { margin-bottom: 10px; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
+        li::before { content: "•"; position: absolute; left: 0; color: var(--accent-orange); font-weight: bold; }
+
+        .highlight-box {
+            background: #fdf2f2;
+            border: 1px solid #fee2e2;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--deep-orange);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-secondary {
+            background: var(--info-blue);
+        }
+
+        .btn-portal:hover {
+            opacity: 0.9;
+        }
+
+        .important-notice {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            color: #166534;
+        }
+
+        .step-tag {
+            background: var(--newbie-yellow);
+            color: #92400e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/academic-journey/current-students/thesis-process.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Thesis Process
+    </a>
+
+    <h1>Research Ethics</h1>
+
+    <div class="deadline-banner">
+        <i data-lucide="shield-check" style="flex-shrink: 0; margin-top: 3px;"></i>
+        <div>
+            <strong>Mandatory Requirement:</strong> Every research project must have either a
+            <u>Certificate of Ethics Approval (COA)</u> issued by the corresponding Ethics Committee or an <u>Exemption Document</u>.
+        </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="requirement-card">
+        <span class="step-tag">Step 1</span>
+        <div class="card-title"><i data-lucide="file-down"></i> Download Checklist</div>
+        <p>Download the official self-assessment form to determine your research category.</p>
+        <div class="button-group">
+            <a href="https://sp.mahidol.ac.th/th/ethics-human/forms/checklist/2022-Human%20Research%20Checklist-researcher.pdf" target="_blank" class="btn-portal">
+                <i data-lucide="download"></i> Download Self-Assessment Form
+            </a>
+        </div>
+    </div>
+
+    <!-- Step 2 & Instructions -->
+    <div class="requirement-card" style="border-left-color: var(--success-green);">
+        <span class="step-tag">Step 2</span>
+        <div class="card-title" style="color: var(--success-green);"><i data-lucide="edit-3"></i> Filling out the Form</div>
+        <p>Fill out the form to evaluate if your research activity involves human subject research.</p>
+
+        <div class="highlight-box">
+            <h4 style="margin-bottom: 12px; color: var(--deep-orange); display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="info"></i> Filling Instructions
+            </h4>
+            <ul>
+                <li><strong>Title of Project:</strong> Specify student's thesis/dissertation title (English only).</li>
+                <li><strong>Principal Investigator:</strong> Specify the student's name.</li>
+                <li><strong>Signatures:</strong> The student must sign as 'Principal Investigator' and the major advisor must sign as 'Thesis Advisor' on Page 3.</li>
+                <li><strong>Format:</strong> Electronic signatures are fully acceptable.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="requirement-card" style="border-left-color: var(--info-blue);">
+        <span class="step-tag">Step 3</span>
+        <div class="card-title" style="color: var(--info-blue);"><i data-lucide="send"></i> Submit via e-Form</div>
+        <p>Submit your completed self-assessment form through the e-Form system.</p>
+        <div class="button-group">
+            <a href="https://graduate.mahidol.ac.th/prof2/Student/MainPage.php?lang=en&module=login.php" target="_blank" class="btn-portal btn-secondary">
+                <i data-lucide="external-link"></i> e-Form Portal
+            </a>
+        </div>
+    </div>
+
+    <!-- Final Note -->
+    <div class="important-notice">
+        <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <i data-lucide="alert-circle"></i> Human or Animal Research
+        </h4>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            If the assessment indicates your project involves human or animal subjects, you <strong>must</strong> upload the official <strong>Certificate of Ethics Approval (COA)</strong> issued by the Ethics Committee to the e-Form system.
+        </p>
+    </div>
+</div>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+</script>
+</body>
+</html>
