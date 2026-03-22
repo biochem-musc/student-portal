@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof of Education Request</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f0f0f0;
+            --newbie-yellow: #FFEDC2;
+            --current-teal: #A8DADC;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --purple-soft: #f3f0ff;
+            --purple-bold: #7c3aed;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            color: var(--deep-orange);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .intro-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- Timeline Styling --- */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 17px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--newbie-yellow);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border: 4px solid var(--accent-orange);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--soft-gray);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .timeline-content h3 {
+            color: var(--deep-orange);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .doc-badge {
+            background: var(--purple-soft);
+            color: var(--purple-bold);
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #dcd7ff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .doc-badge i {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* --- Portal Section --- */
+        .portal-card {
+            background: #fdf2ff;
+            border: 2px dashed #d8b4fe;
+            border-radius: 25px;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .portal-card h2 {
+            color: var(--purple-bold);
+            margin-bottom: 15px;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--purple-bold);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(124, 58, 237, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; border-radius: 0; }
+            .timeline { padding-left: 30px; }
+            .timeline-dot { left: -25px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Home
+    </a>
+
+    <div class="header-section">
+        <h1>Proof of Education Request</h1>
+        <p class="intro-text">Follow the timeline below to see which documents are available at each stage of your studies.</p>
+    </div>
+
+    <div class="timeline">
+
+        <!-- Step 1 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3><i data-lucide="book-open"></i> After Completing Coursework</h3>
+                <p style="font-size: 0.9rem; color: #666;">Once all required credits for coursework are finished:</p>
+                <div class="doc-list">
+                    <span class="doc-badge"><i data-lucide="list-ordered"></i> Grade Report</span>
+                    <span class="doc-badge"><i data-lucide="file-text"></i> Certificate of Coursework Completion</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3><i data-lucide="shield-check"></i> After Passing Defense Exam</h3>
+                <p style="font-size: 0.9rem; color: #666;">Following the successful defense of your thesis/dissertation:</p>
+                <div class="doc-list">
+                    <span class="doc-badge"><i data-lucide="list-ordered"></i> Grade Report</span>
+                    <span class="doc-badge"><i data-lucide="file-check"></i> Certificate of Passing Defense Exam</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3><i data-lucide="clock"></i> After Submitting GR5 (Degree Request)</h3>
+                <p style="font-size: 0.9rem; color: #666;">While your application for degree approval is pending with the Mahidol University Council:</p>
+                <div class="doc-list">
+                    <span class="doc-badge"><i data-lucide="list-ordered"></i> Grade Report</span>
+                    <span class="doc-badge"><i data-lucide="hourglass"></i> Certificate of Awaiting the Approval of Graduation by University Council</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3><i data-lucide="graduation-cap"></i> After Degree is Officially Granted</h3>
+                <p style="font-size: 0.9rem; color: #666;">Once the Mahidol University Council has officially conferred your degree:</p>
+                <div class="doc-list">
+                    <span class="doc-badge"><i data-lucide="scroll"></i> Official Transcript</span>
+                    <span class="doc-badge"><i data-lucide="award"></i> Certificate of Graduation</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="portal-card">
+        <h2>Ready to Request?</h2>
+        <p style="margin-bottom: 20px; color: #555;">All official documents must be requested through the Faculty of Graduate Studies online portal.</p>
+        <a href="https://graduate.mahidol.ac.th/academic/transcript/login.php" target="_blank" class="link-btn">
+            <i data-lucide="external-link"></i> Online System for Proof of Education
+        </a>
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
