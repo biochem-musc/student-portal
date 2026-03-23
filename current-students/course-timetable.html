@@ -326,59 +326,18 @@
             <thead>
                 <tr>
                     <th width="12%">Code</th>
-                    <th width="48%">Course Name & Description</th>
-                    <th width="20%">Credits</th>
-                    <th width="20%">Timetable</th>
+                    <th width="75%">Course Name & Description</th>
+                    <th width="13%">Credits</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><span class="course-code">SCID 500</span></td>
-                    <td>
-                        <span class="course-name">Cell and Molecular Biology</span>
-                        <div class="course-desc">Basic principles of cell and molecular biology. Molecular mechanisms of gene expression and regulation.</div>
-                    </td>
-                    <td><span class="credits">3 (3-0-6)</span></td>
-                    <td><a href="#" target="_blank" class="download-btn"><i data-lucide="file-text" size="14"></i> Download</a></td>
-                </tr>
-                <tr>
-                    <td><span class="course-code">SCBC 601</span></td>
-                    <td>
-                        <span class="course-name">Current Topics in Biochemistry</span>
-                        <div class="course-desc">Critical analysis and discussion of latest research publications in biochemistry.</div>
-                    </td>
-                    <td><span class="credits">2 (2-0-4)</span></td>
-                    <td><a href="#" target="_blank" class="download-btn"><i data-lucide="file-text" size="14"></i> Download</a></td>
-                </tr>
+            <tbody id="sem1TableBody">
+                
             </tbody>
         </table>
 
         <!-- Mobile Cards -->
-        <div class="mobile-cards">
-            <div class="course-card">
-                <div class="course-header">
-                    <span class="course-code">SCID 500</span>
-                    <span class="credits">3 (3-0-6)</span>
-                </div>
-                <div class="course-name">Cell and Molecular Biology</div>
-                <div class="course-desc">Basic principles of cell and molecular biology. Molecular mechanisms of gene expression and regulation.</div>
-                <div class="course-meta">
-                    <span class="course-file-header">Course File:</span>
-                    <a href="#" target="_blank" class="download-btn"><i data-lucide="file-text" size="14"></i> Download PDF</a>
-                </div>
-            </div>
-            <div class="course-card">
-                <div class="course-header">
-                    <span class="course-code">SCBC 601</span>
-                    <span class="credits">2 (2-0-4)</span>
-                </div>
-                <div class="course-name">Current Topics in Biochemistry</div>
-                <div class="course-desc">Critical analysis and discussion of latest research publications in biochemistry and molecular biology.</div>
-                <div class="course-meta">
-                    <span class="course-file-header">Course File:</span>
-                    <a href="#" target="_blank" class="download-btn"><i data-lucide="file-text" size="14"></i> Download PDF</a>
-                </div>
-            </div>
+        <div class="mobile-cards" id="sem1MobileDivBody">
+            
         </div>
     </div>
 
@@ -389,44 +348,23 @@
             <thead>
                 <tr>
                     <th width="12%">Code</th>
-                    <th width="48%">Course Name & Description</th>
-                    <th width="20%">Credits</th>
-                    <th width="20%">Timetable</th>
+                    <th width="75%">Course Name & Description</th>
+                    <th width="13%">Credits</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><span class="course-code">SCID 501</span></td>
-                    <td>
-                        <span class="course-name">Seminar in Biochemistry</span>
-                        <div class="course-desc">Discussion and presentation of recent interesting topics in biochemistry and related sciences.</div>
-                    </td>
-                    <td><span class="credits">1 (1-0-2)</span></td>
-                    <td><a href="#" target="_blank" class="download-btn"><i data-lucide="file-text" size="14"></i> Download</a></td>
-                </tr>
+            <tbody id="sem2TableBody">
+                
             </tbody>
         </table>
 
         <!-- Mobile Cards -->
-        <div class="mobile-cards">
-            <div class="course-card">
-                <div class="course-header">
-                    <span class="course-code">SCID 501</span>
-                    <span class="credits">1 (1-0-2)</span>
-                </div>
-                <div class="course-name">Seminar in Biochemistry</div>
-                <div class="course-desc">Discussion and presentation of recent interesting topics in biochemistry and related sciences.</div>
-                <div class="course-meta">
-                    <span class="course-file-header">Course File:</span>
-                    <a href="#" target="_blank" class="download-btn"><i data-lucide="file-text" size="14"></i> Download PDF</a>
-                </div>
-            </div>
+        <div class="mobile-cards" id="sem2MobileDivBody">
+            
         </div>
     </div>
 </div>
 
 <script>
-    lucide.createIcons();
 
     function switchSemester(sem) {
         document.querySelectorAll('.toggle-btn').forEach((btn, index) => {
@@ -439,6 +377,82 @@
         });
         document.getElementById(`sem${sem}`).classList.add('active');
     }
+
+/*Desktop*/
+    function addCourseToTable(course, tableId) {
+        const tableBody = document.getElementById(tableId);
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+                <td><span class="course-code">${course.code}</span></td>
+                <td>
+                <span class="course-name">${course.name}</span>
+                <div class="course-desc">${course.desc}</div>
+                </td>
+                <td><span class="credits">${course.credits}</span></td>
+        `;
+        tableBody.appendChild(tr);
+    }
+
+/*Mobile*/
+    function addCourseToMobileDiv(course, mobileDivId) {
+        const mobileDivBody = document.getElementById(mobileDivId);
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <div class="course-card">
+                <div class="course-header">
+                    <span class="course-code">${course.code}</span>
+                    <span class="credits">${course.credits}</span>
+                </div>
+                <div class="course-name">${course.name}</div>
+                <div class="course-desc">${course.desc}</div>
+            </div>
+        `;
+        mobileDivBody.appendChild(div);
+    }
+
+    let sem1Courses = [
+	{code: "SCBC 604", name: "Biochemistry Seminar I", desc: "Literature search in biochemistry and molecular biology topic related to student’s thesis; analysis and identification of research questions; experimental design to prove research questions; discussion the biochemistry research topic of interest using international publication", credits:"1(1-0-2)", link: ""},
+	{code: "SCBC 607", name: "Current Topics in Biochemistry", desc: "Topics that are of current interest and of importance in biochemical research, such as synthetic biology; DNA recombination techniques; genome editing", credits:"3(3-0-6)", link: ""},
+	{code: "SCBC 609", name: "Structure and Mechanism of Enzymes", desc: "Enzymes, enzyme structure, enzyme mechanism; protein and enzyme structure determination; molecular visualization; protein engineering; protein simulation; enzyme innovation", credits:"2(2-0-4)", link: ""},
+	{code: "SCBC 610", name: "Modern Metabolism", desc: "Cellular signaling controlling metabolism; posttranslational regulation of metabolism; tissue and organ specific metabolism; iron metabolism; cholesterol and drug transport; metabolomic database; nanotechnology in metabolism", credits:"2(2-0-4)", link: ""},
+	{code: "SCBC 612", name: "Functional Genetics and Genomics", desc: "Functional genetics; different levels of gene expression control; DNA replication and repair; RNA biosynthesis and processing; translational control and microRNA; advanced molecular techniques for functional genetics; 4D nucleosome", credits:"2(2-0-4)", link: ""},
+	{code: "SCBC 614", name: "Advanced Biochemistry Seminar I", desc: "Literature search in biochemistry and molecular biology topic related to student’s dissertation; analysis and identification of research questions; experimental design to prove research questions; discussion the biochemistry research topic of interest using international publication", credits:"1(1-0-2)", link: ""},
+	{code: "SCID 500", name: "Cell and Molecular Biology", desc: "Cell structure and function; life and information flow in cell; energy flow in biosystem; cell signaling; cell division; cellular differentiation; cell death and development", credits:"3(3-0-6)", link: ""},
+	{code: "SCID 502", name: "Cell Science", desc: "Mechanism of cellular trafficking and processing among organelles; cellular communication, recognition, adhesion and interaction; cell cycle and controls of cellular differentiation and cancer; cellular signal transduction; cellular response to stress; cell injury, senescence, cell death; cell-microbe interaction; cellular immune responses; molecular pathogenesis of some diseases", credits:"2(2-0-4)", link: ""},
+	{code: "SCID 503", name: "Systemic Bioscience", desc: "Homeostasis; integumentary and immune systems; nervous system, musculoskeletal system; cardiovascular system; respiratory system; urinary system; digestive system; endocrine system; reproductive system; integration of systemic bioscience", credits:"3(3-0-6)", link: ""},
+	{code: "SCID 506", name: "Concepts of Molecular Bioscience", desc: "Biochemical and biophysical processes of living systems; structures and functions of biological molecules; manipulation of energy and metabolites in biological systems; regulation and expression process of genetic materials", credits:"2(2-0-4)", link: ""},
+	{code: "SCID 508", name: "Biomolecular and Spectroscopy Techniques", desc: "Absorbance and fluorescence spectroscopy; mass spectroscopy; nuclear magnetic resonance spectroscopy; biomolecular spectroscopy; laboratory rules and regulations", credits:"1(0-2-1)", link: ""},
+	{code: "SCID 511", name: "Gene Technology", desc: "Gene manipulation and recombinant techniques; basic knowledge to understand the principles of gene technology; mini-projects involving handling of nucleic acids and proteins; evaluation of the quality of data generated; laboratory rules and regulations", credits:"1(0-2-1)", link: ""},
+	{code: "SCID 518", name: "Generic Skills in Science Research", desc: "Qualities of a good researcher; effective searching of the scientific information; laboratory safety, biosafety, chemical safety, radiation safety, electrical safety; ethics of research in human subjects; experimental animals in science; intellectual property rights; research misconduct; attribution of credit and responsibility; techniques in formulating and writing thesis proposals, research projects, grant applications, research reports and manuscript for publication", credits:"1(1-0-2)", link: ""},
+    ];
+
+    let sem2Courses = [
+	{code: "SCBC 603", name: "Advanced Biochemistry Laboratory", desc: "Laboratory techniques related to biochemical research, including assays of protein quantity and enzyme activity, gene expression levels, cell cultures; introduction to research methodologies in biochemical research", credits:"2(0-4-2)", link: ""},
+	{code: "SCBC 606", name: "Biochemistry Seminar II", desc: "Update of thesis progress, review of scientific articles; extensive review of scientific articles; effective abstract writing and oral presentation; providing and taking critics from peers; future directions and applications", credits:"1(1-0-2)", link: ""},
+	{code: "SCBC 611", name: "Current Protocols in Biomolecular Research", desc: "Current biochemical and biomolecular techniques; their applications in studying biomolecular functions; advantages and limitations of the techniques", credits:"1(1-0-2)", link: ""},
+	{code: "SCBC 613", name: "Advanced Skills in Biochemical Research", desc: "Transferable skills required by researchers to independently conduct and communicate their research, namely biochemistry proposal writing for the grant for new scholar; critical thinking; extensive literature review; experimental design and basic statistics for biochemists; effective oral presentation and writing of scientific work; research ethics; grant application and reviewing process; discussion of biochemistry proposal", credits:"3(3-0-6)", link: ""},
+	{code: "SCBC 615", name: "Advanced Biochemistry Seminar II", desc: "Preparation and presentation of the research proposal; extensive review of scientific articles; effective abstract writing and oral presentation; providing and taking critics from peers", credits:"1(1-0-2)", link: ""},
+	{code: "SCBC 616", name: "Advanced Biochemistry Seminar III", desc: "Update of dissertation progress; extensive review of scientific articles; effective abstract writing and oral presentation; providing and taking critics from peers; future directions and applications", credits:"1(1-0-2)", link: ""},
+	{code: "SCBC 617", name: "Bioinformatics and Molecular Systems Biology", desc: "Bioinformatics; systems biology; DNA sequence analysis methods; genome and genome variations; metagenomics; transcriptomics; proteomics; metabolomics; protein structure analyses; protein-ligand modeling; single-cell biology; synthetic biology", credits:"2(2-0-4)", link: ""},
+	{code: "SCBC 618", name: "Stem Cell and Cancer Bioscience", desc: "Frontier bioscience in stem cells and cancers; concept of regenerative medicine; advances in cancer biomarkers; in-depth knowledges of cancer signaling; tumor angiogenesis; metastasis; cancer stem cells; cancer immunology and immunotherapy", credits:"3(3-0-6)", link: ""},
+	{code: "SCBC 619", name: "Integrated Skills in Biochemical Research", desc: "Transferable skills required by researchers to independently conduct and communicate their research, such as extensive search and review of literatures in biochemistry; critical and logical thinking; research ethics; experimental design to prove research questions; research data analysis; sensible discussion and summary of data; application of biochemistry knowledge in private sectors and industries; site visit; intellectual property law; time management; presentation and experience sharing", credits:"3(3-0-6)", link: ""},
+	{code: "SCID 507", name: "Microscopic Technique", desc: "Structure and operation of light microscope; phase, dark field and differential interference contrast microscopes; confocal microscope; fluorescence microscope; transmission electron microscope (TEM); scanning electron microscope (SEM); specimen collection; fixation; sectioning; basic staining and immunocytochemical methods for microscopic examination; photography and interpretation of the results; laboratory rules and regulations", credits:"1(0-2-2)", link: ""},
+	{code: "SCID 509", name: "Separation Techniques", desc: "Protein purification; ammonium sulfate precipitation; centrifugation; electrophoresis; chromatography, affinity chromatography, ion exchange chromatography, size exclusion chromatography, hydrophobic interaction chromatography, high performance liquid chromatography", credits:"1(0-2-1)", link: ""},
+	{code: "SCID 510", name: "Immunological Methods", desc: "Basic principles and applications of immunological methods enzyme-linked immunosorbent assay; SDS-PAGE and immunoblotting; direct and indirect immunofluorescence assays; immunoelectron microscopy; immunoprecipitation; peripheral blood mononuclear white blood cell preparation; flow cytometry and cell sorting; laboratory rules and regulations", credits:"1(0-2-2)", link: ""},
+	{code: "SCID 512", name: "Receptor Binding and Enzyme Kinetic Assays", desc: "Receptor-drug interaction; receptor preparation; saturation binding experiment; characterization of drugs and receptors by competitive binding experiments; analysis of binding data using computerized program; techniques in enzyme kinetic analysis; analytical enzymology; laboratory rules and regulations", credits:"1(0-2-2)", link: ""},
+    ];
+
+    for(const course of sem1Courses)
+        addCourseToTable(course, "sem1TableBody");
+    for(const course of sem2Courses)
+        addCourseToTable(course, "sem2TableBody");
+
+    for(const course of sem1Courses)
+	addCourseToMobileDiv(course, "sem1MobileDivBody");
+    for(const course of sem2Courses)
+	addCourseToMobileDiv(course, "sem2MobileDivBody");
+	
+    lucide.createIcons();
 </script>
 </body>
 </html>
