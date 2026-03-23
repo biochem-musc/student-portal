@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Thesis Title, Committee, or Exam Date</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-warm: #FFF9F2;
+            --accent-orange: #F28482;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --soft-gray: #f8fafc;
+            --deep-orange: #E56B6F;
+            --info-blue: #457B9D;
+            --success-green: #81b29a;
+            --warning-amber: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 { color: var(--deep-orange); margin-bottom: 1rem; font-size: 1.8rem; }
+        .intro { margin-bottom: 2rem; line-height: 1.6; color: #666; }
+
+        /* Case Section Styling */
+        .case-section {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: var(--soft-gray);
+        }
+
+        .case-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--white);
+        }
+
+        .case-number {
+            background: var(--info-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .case-title { font-size: 1.3rem; color: var(--text-dark); }
+
+        .steps-list { list-style: none; }
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.25rem;
+        }
+
+        .step-circle {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border: 2px solid var(--info-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--info-blue);
+            flex-shrink: 0;
+        }
+
+        .step-content { flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
+
+        /* Buttons & Links */
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--info-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 5px;
+            transition: color 0.2s;
+        }
+        .link-btn:hover { color: var(--deep-orange); }
+
+        .download-box {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* Forms Checklist */
+        .checklist-card {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+        }
+
+        .checklist-header {
+            color: var(--warning-amber);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .check-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: #fff1f2;
+            border-left: 4px solid #f43f5e;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #9f1239;
+        }
+
+        .contact-chip {
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #334155;
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-nav:hover { transform: translateX(-5px); }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--deep-orange);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: opacity 0.2s;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/academic-journey/current-students/thesis-process.html" class="back-nav">
+        <i data-lucide="arrow-left"></i> Back to Thesis Process
+    </a>
+    <h1>Changing Thesis Details</h1>
+    <p class="intro">
+        If you need to update your thesis title, adjust your committee members, or reschedule a pre-approved exam date, please follow the specific procedures below.
+    </p>
+
+    <!-- Case 1 -->
+    <section class="case-section">
+        <div class="case-header">
+            <span class="case-number">Case 1</span>
+            <h2 class="case-title">Changing the Thesis Title</h2>
+        </div>
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-circle">1</div>
+                <div class="step-content">
+                    <strong>Submit GR49 via the e-Form System</strong><br>
+                    <div class="button-group">
+                    <a href="https://graduate.mahidol.ac.th/prof2/Student/MainPage.php?lang=en&module=login.php" target="_blank" class="btn-portal">
+                        <i data-lucide="external-link"></i> e-Form Portal
+                    </a>
+                </div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">2</div>
+                <div class="step-content">
+                    <strong>Prepare Documents:</strong>
+                    <ul style="margin-top: 8px; padding-left: 1.2rem; color: #64748b;">
+                        <li>New thesis title (<strong>English only</strong>)</li>
+                        <li>Updated thesis abstract (<strong>English only</strong>)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="warning-box">
+            <strong>Note:</strong> The research scope must remain consistent. If the research objectives change significantly, you must cancel the thesis title and re-take the thesis proposal examination.
+        </div>
+    </section>
+
+    <!-- Case 2 -->
+    <section class="case-section">
+        <div class="case-header">
+            <span class="case-number">Case 2</span>
+            <h2 class="case-title">Changing Committee Members</h2>
+        </div>
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-circle">1</div>
+                <div class="step-content">
+                    <strong>Download & Fill Form</strong>
+                    <div class="button-group">
+                        <a href="https://graduate.mahidol.ac.th/download/current-student/form/GR_49_en.pdf" target="_blank" class="btn-portal">
+                        <i data-lucide="download"></i> Download GR49 Form
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">2</div>
+                <div class="step-content">
+                    <strong>Prepare Supporting Evidence</strong>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 5px;">
+                        Create an MS Word file comparing existing vs. updated lists. For <strong>new members</strong>, include their updated CVs (mainly consisting of education background & publication list).
+                    </p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">3</div>
+                <div class="step-content">Obtain signature from your Major Advisor.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">4</div>
+                <div class="step-content">
+                    Email the signed form and supporting documents to <strong>P'Mod</strong>:
+                    <span class="contact-chip">kritsadapan.tak@mahidol.ac.th</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case 3 -->
+    <section class="case-section">
+        <div class="case-header">
+            <span class="case-number">Case 3</span>
+            <h2 class="case-title">Changing the Exam Date</h2>
+        </div>
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-circle">1</div>
+                <div class="step-content">
+                    <strong>Download & Fill Form</strong>
+                    <div class="button-group">
+                        <a href="https://graduate.mahidol.ac.th/download/current-student/form/GR_49_en.pdf" target="_blank" class="btn-portal">
+                        <i data-lucide="download"></i> Download GR49 Form
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">2</div>
+                <div class="step-content">Obtain signature from your Major Advisor.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">4</div>
+                <div class="step-content">
+                    Email the signed form to <strong>P'Mod</strong>:
+                    <span class="contact-chip">kritsadapan.tak@mahidol.ac.th</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GR49 Checklist -->
+    <div class="checklist-card">
+        <div class="checklist-header">
+            <i data-lucide="check-square"></i> GR49 Filling Checklist
+        </div>
+        <div class="check-item">
+            <i data-lucide="check" size="16" style="color: var(--success-green);"></i>
+            <span>Correctly checked "Replacement" or "Cancellation"</span>
+        </div>
+        <div class="check-item">
+            <i data-lucide="check" size="16" style="color: var(--success-green);"></i>
+            <span>Selected correct item (Items 1-7)</span>
+        </div>
+        <div class="check-item">
+            <i data-lucide="check" size="16" style="color: var(--success-green);"></i>
+            <span>Accurate Administrative order number & appointing date</span>
+        </div>
+        <div class="check-item">
+            <i data-lucide="check" size="16" style="color: var(--success-green);"></i>
+            <span>Specified clear reasons for the change</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
