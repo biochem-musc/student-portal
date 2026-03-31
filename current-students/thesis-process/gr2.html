@@ -206,11 +206,12 @@
             border: 1px solid #10b981;
             padding: 1.25rem;
             border-radius: 16px;
-            margin-bottom: 2rem;
+            /*margin-bottom: 2rem;*/
             display: flex;
-            align-items: center;
-            gap: 15px;
+            /*align-items: center;*/
+            /*gap: 15px;*/
             color: #065f46;
+            flex-direction:column;
         }
     </style>
 </head>
@@ -239,10 +240,13 @@
 
     </div>-->
 
-    <div class="eligibility-banner" style="flex-direction:column;">
-        <span style="display:flex; justify-items:center;"><i data-lucide="check-circle" style="color: #10b981;"></i><strong>Eligibility Requirement:</strong></span>
+     <div class="eligibility-banner">
+        <span style="display:flex; justify-items:center; gap: 5px;">
+            <i data-lucide="check-circle" style="color: #10b981;"></i>
+            <strong>Eligibility Requirement:</strong>
+        </span>
         <span style="padding-left:20px;">
-            <br>• Complete all required credits and obtain grades for all courses, including the thesis/dissertation, in each semester
+            • Complete all required credits and obtain grades for all courses, including the thesis/dissertation, in each semester
             <br>• Conduct research for at least 90 days after your thesis title (GR1) has been approved
             <br>• Meet the required English proficiency score for graduation <strong>BEFORE taking the thesis defense examination</strong>
         </span>
