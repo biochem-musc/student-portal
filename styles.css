@@ -1,0 +1,70 @@
+/* ============================================================
+   Biochemistry Graduate Programs — Shared Stylesheet
+   Loaded by every page. Page-specific styles stay inline.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Design Tokens
+   ------------------------------------------------------------ */
+:root {
+    /* Core palette */
+    --bg-warm: #FFF9F2;
+    --newbie-yellow: #FFEDC2;
+    --current-teal: #A8DADC;
+    --accent-orange: #F28482;
+    --deep-orange: #E56B6F;
+    --text-dark: #4A4A4A;
+    --white: #FFFFFF;
+    --soft-gray: #f0f0f0;
+    --info-blue: #457B9D;
+    --success-green: #81b29a;
+    --warning-red: #ef4444;
+    --warning-amber: #f59e0b;
+    --mahidol-blue: #0035ad;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+    /* Aliases kept for pages that use alternate names */
+    --link-blue: #457B9D;       /* = --info-blue */
+    --soft-yellow: #FFEDC2;     /* = --newbie-yellow */
+    --teal: #A8DADC;            /* = --current-teal */
+}
+
+/* ------------------------------------------------------------
+   Global Reset
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ------------------------------------------------------------
+   Base Body
+   ------------------------------------------------------------ */
+body {
+    background-color: var(--bg-warm);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* ------------------------------------------------------------
+   Back Navigation  (used on all content pages)
+   ------------------------------------------------------------ */
+.back-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--accent-orange);
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.back-nav:hover {
+    transform: translateX(-5px);
+}

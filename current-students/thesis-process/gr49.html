@@ -6,24 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Changing Thesis Details</title>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../../styles.css">
     <style>
         :root {
-            --bg-warm: #FFF9F2;
-            --accent-orange: #F28482;
-            --text-dark: #4A4A4A;
-            --white: #FFFFFF;
-            --soft-gray: #f8fafc;
-            --deep-orange: #E56B6F;
-            --info-blue: #457B9D;
-            --success-green: #81b29a;
-            --warning-amber: #f59e0b;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --soft-gray: #f8fafc; /* page-specific override */
         }
 
         body {
@@ -164,20 +150,6 @@
             font-family: monospace;
             color: #334155;
         }
-
-        .back-nav {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--accent-orange);
-            margin-bottom: 1.5rem;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-
-        .back-nav:hover { transform: translateX(-5px); }
 
         .button-group {
             display: flex;
