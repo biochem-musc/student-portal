@@ -83,14 +83,19 @@
             word-break: break-all;
         }
 
-        .checkin-card {
-            background: white;
-            border: 1px solid var(--soft-gray);
-            border-radius: 12px;
-            padding: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            text-align: center;
-            font-size: 0.9rem;
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: var(--bg-warm);
+            color: var(--link-blue);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.2s;
         }
 
         .note-box {
@@ -269,16 +274,14 @@
                 Upload required documents, download student materials, and check the health check-up schedule at the <strong>Online Check-in System</strong>.
                 <br>
                 <br>
-                <div class="contact-grid">
                     <!-- Thai Students -->
-                    <div class="checkin-card">
+                    <div class="link-btn">
                         <a href="https://graduate.mahidol.ac.th/student-checkin-th/main/?page_name=bt_logon" target="_blank" class="checkin-link">For Thai Students</a>
                     </div>
                     <!-- International Students -->
-                    <div class="checkin-card">
+                    <div class="link-btn">
                         <a href="https://graduate.mahidol.ac.th/student-checkin/login.php?program=2105MG00&year=2569&round=3" target="_blank" class="checkin-link">For International Students</a>
                     </div>
-                </div>
             </div>
         </div>
 
