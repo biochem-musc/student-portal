@@ -138,6 +138,23 @@
             font-size: 0.95rem;
         }
 
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--info-blue);
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+
         .btn-portal {
             display: inline-flex;
             align-items: center;
@@ -280,55 +297,54 @@
         </div>
     </div>
 
-    <!-- 3. Visa application process -->
-    <div class="steps-container">
-        <h2><i data-lucide="globe"></i> Visa Process for International Students</h2>
-        <p>International students will be able to request documents for their student visa application <strong>after completing the new student check-in process</strong>. It is highly recommended that students are physically present in Thailand before the semester starts.</p>
+    <!-- Part 3: Visa Application -->
+    <div class="card-title" style="color: var(--accent-orange);"><i data-lucide="globe"></i> Visa Process for International Students</div>
+    
+    <p>International students will be able to request documents for their student visa application <strong>after completing the new student check-in process</strong>. It is highly recommended that students are physically present in Thailand before the semester starts.</p>
 
-        <div class="button-group">
-            <a href="../download/visa-flyer.jpg" target="_blank" class="btn-portal">
-                <i data-lucide="image"></i> Download Visa Process Flyer
-            </a>
-            <a href="../download/gria01-form.pdf" target="_blank" class="btn-portal btn-secondary">
-                <i data-lucide="file-text"></i> Download GRIA 01 Form
-            </a>
-        </div>
+    <div class="button-group">
+        <a href="../download/visa-flyer.jpg" target="_blank" class="btn-portal">
+            <i data-lucide="image"></i> Download Visa Process Flyer
+        </a>
+        <a href="../download/gria01-form.pdf" target="_blank" class="btn-portal btn-secondary">
+            <i data-lucide="file-text"></i> Download GRIA 01 Form
+        </a>
+    </div>
+
+    <!-- Submission Details -->
+    <div class="highlight-box">
+        <h4><i data-lucide="mail"></i> Requesting Program Director's Signature</h4>
+        <p style="font-size: 0.9rem; margin-bottom: 12px; color: #555;">After filling out your request form, please email the completed document directly to your respective Program Director to request their signature:</p>
         
-        <!-- Submission Details -->
-        <div class="highlight-box">
-            <h4><i data-lucide="mail"></i> Requesting Program Director's Signature</h4>
-            <p style="font-size: 0.9rem; margin-bottom: 12px; color: #555;">After filling out your request form, please email the completed document directly to your respective Program Director to request their signature:</p>
-            
-            <div class="contact-grid">
-                <!-- MSc -->
-                <div class="contact-card">
-                    <strong>Assoc. Prof. Dr. Ruchanok Tinikul</strong>
-                    <span>MSc Program Director</span>
-                    <a href="mailto:ruchanok.tin@mahidol.ac.th" class="email-link">
-                        <i data-lucide="mail" size="14"></i> ruchanok.tin@mahidol.ac.th
-                    </a>
-                </div>
-                <!-- PhD -->
-                <div class="contact-card">
-                    <strong>Assoc. Prof. Dr. Thaned Kangsamaksin</strong>
-                    <span>PhD Program Director</span>
-                    <a href="mailto:thaned.kan@mahidol.ac.th" class="email-link">
-                        <i data-lucide="mail" size="14"></i> thaned.kan@mahidol.ac.th
-                    </a>
-                </div>
+        <div class="contact-grid">
+            <!-- MSc -->
+            <div class="contact-card">
+                <strong>Assoc. Prof. Dr. Ruchanok Tinikul</strong>
+                <span>MSc Program Director</span>
+                <a href="mailto:ruchanok.tin@mahidol.ac.th" class="email-link">
+                    <i data-lucide="mail" size="14"></i> ruchanok.tin@mahidol.ac.th
+                </a>
+            </div>
+            <!-- PhD -->
+            <div class="contact-card">
+                <strong>Assoc. Prof. Dr. Thaned Kangsamaksin</strong>
+                <span>PhD Program Director</span>
+                <a href="mailto:thaned.kan@mahidol.ac.th" class="email-link">
+                    <i data-lucide="mail" size="14"></i> thaned.kan@mahidol.ac.th
+                </a>
             </div>
         </div>
+    </div>
 
-        <!-- External Link Integration -->
-        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--soft-gray);">
-            <p style="font-size: 0.9rem; color: #666; display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="info" size="16" style="color: var(--info-blue);"></i>
-                <span>For more detailed guidelines, please visit the official page: 
-                    <a href="https://graduate.mahidol.ac.th/inter/current-students/?topic=VisaProcess" target="_blank" style="color: var(--info-blue); font-weight: bold; text-decoration: underline;">FGS Visa Process</a>
-                </span>
-            </p>
-        </div>
-        
+    <!-- External Link Integration -->
+    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--soft-gray);">
+        <p style="font-size: 0.9rem; color: #666; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="info" size="16" style="color: var(--info-blue);"></i>
+            <span>For more detailed guidelines, please visit the official page: 
+                <a href="https://graduate.mahidol.ac.th/inter/current-students/?topic=VisaProcess" target="_blank" style="color: var(--info-blue); font-weight: bold; text-decoration: underline;">FGS Visa Process</a>
+            </span>
+        </p>
+    </div>
     </div>
 
 <script>
