@@ -138,6 +138,61 @@
             font-size: 0.95rem;
         }
 
+        .btn-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--deep-orange);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: var(--info-blue);
+        }
+
+        .btn-portal:hover {
+            opacity: 0.9;
+        }
+
+        .highlight-box {
+            background: #fdf2f2;
+            border: 1px solid #fee2e2;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box h4 {
+            color: var(--deep-orange);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid var(--soft-gray);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        
         @media (max-width: 600px) {
             .container { padding: 1.5rem; border-radius: 0; }
         }
@@ -224,7 +279,57 @@
             </div>
         </div>
     </div>
-</div>
+
+    <!-- 3. Visa application process -->
+    <div class="steps-container">
+        <h2><i data-lucide="globe"></i> Visa Process for International Students</h2>
+        <p>International students will be able to request documents for their student visa application <strong>after completing the new student check-in process</strong>. It is highly recommended that students are physically present in Thailand before the semester starts.</p>
+
+        <div class="button-group">
+            <a href="visa-flyer.jpg" target="_blank" class="btn-portal">
+                <i data-lucide="image"></i> Download Visa Process Flyer
+            </a>
+            <a href="gria01-form.pdf" target="_blank" class="btn-portal btn-secondary">
+                <i data-lucide="file-text"></i> Download GRIA 01 Form
+            </a>
+        </div>
+        
+        <!-- Submission Details -->
+        <div class="highlight-box">
+            <h4><i data-lucide="mail"></i> Requesting Program Director's Signature</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 12px; color: #555;">After filling out your request form, please email the completed document directly to your respective Program Director to request their signature:</p>
+            
+            <div class="contact-grid">
+                <!-- MSc -->
+                <div class="contact-card">
+                    <strong>Assoc. Prof. Dr. Ruchanok Tinikul</strong>
+                    <span>MSc Program Director</span>
+                    <a href="mailto:ruchanok.tin@mahidol.ac.th" class="email-link">
+                        <i data-lucide="mail" size="14"></i> ruchanok.tin@mahidol.ac.th
+                    </a>
+                </div>
+                <!-- PhD -->
+                <div class="contact-card">
+                    <strong>Assoc. Prof. Dr. Thaned Kangsamaksin</strong>
+                    <span>PhD Program Director</span>
+                    <a href="mailto:thaned.kan@mahidol.ac.th" class="email-link">
+                        <i data-lucide="mail" size="14"></i> thaned.kan@mahidol.ac.th
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- External Link Integration -->
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--soft-gray);">
+            <p style="font-size: 0.9rem; color: #666; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="info" size="16" style="color: var(--info-blue);"></i>
+                <span>For more detailed guidelines, please visit the official page: 
+                    <a href="https://graduate.mahidol.ac.th/inter/current-students/?topic=VisaProcess" target="_blank" style="color: var(--info-blue); font-weight: bold; text-decoration: underline;">FGS Visa Process</a>
+                </span>
+            </p>
+        </div>
+        
+    </div>
 
 <script>
     lucide.createIcons();
