@@ -233,6 +233,20 @@
             cursor: pointer;
         }
 
+		.email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--white);
+            color: var(--info-blue);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--info-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
         /* Responsive Breakpoints */
         @media (min-width: 768px) {
             body { padding: 2rem; }
@@ -360,7 +374,9 @@
 			2. Complete the form and sign in the signature field below the table<br>
 			3. Obtain comments and/or signatures from your advisor and program director<br>
 			4. Send the completed and signed RA-01 form to P’Mod via email<br>
-			<br>
+			<a href="mailto:kritsadapan.tak@mahidol.ac.th" class="email-link" style="word-break: break-all;">
+               <i data-lucide="mail"></i> kritsadapan.tak@mahidol.ac.th
+            </a><br>
 			Students can refer to the example of how to complete the RA-01 form <a href="../download/ra01-example.jpg" target="_blank"> <span>here</span></a>.
 			<br>
 			<strong>Note:</strong> For first-year students, please ask your program director to provide comments and signatures in both sections (advisor and program director),
